@@ -130,6 +130,20 @@ test('preload', async () => {
   expect(component2.toJSON()).toMatchSnapshot(); // success
 });
 
+// @seatgeek-mod-begin
+test('await preload', async () => {
+  const LoadableMyComponent = Loadable({
+    loader: createLoader(400, MyComponent),
+    loading: MyLoadingComponent
+  });
+
+  await LoadableMyComponent.preload();
+
+  const component = renderer.create(<LoadableMyComponent prop="baz" />);
+  expect(component.toJSON()).toMatchSnapshot(); // success
+});
+// @seatgeek-mod-end
+
 test('render', async () => {
   let LoadableMyComponent = Loadable({
     loader: createLoader(400, { MyComponent }),

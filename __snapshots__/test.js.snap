@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`await preload 1`] = `
+<div>
+  MyComponent 
+  {"prop":"baz"}
+</div>
+`;
+
 exports[`delay and timeout 1`] = `
 <div>
   MyLoadingComponent 

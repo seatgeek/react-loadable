@@ -144,6 +144,9 @@ function createLoadableComponent(loadFn, options) {
       if (!res) {
         res = loadFn(opts.loader);
       }
+      // @seatgeek-mod-begin
+      return res.promise;
+      // @seatgeek-mod-end
     }
 
     componentWillMount() {
