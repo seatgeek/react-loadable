@@ -152,9 +152,11 @@ function createLoadableComponent(loadFn, options) {
     componentWillMount() {
       this._mounted = true;
 
-      if (res.resolved) {
+      // @seatgeek-mod-begin
+      if (!res.loading) {
         return;
       }
+      // @seatgeek-mod-end
 
       if (typeof opts.delay === 'number') {
         this._delay = setTimeout(() => {
